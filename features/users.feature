@@ -28,3 +28,15 @@ And eu preencho o campo “Tipo de conta” com “Ouvinte”
 And eu clico na opção “Finalizar cadastro”
 Then eu vejo a mensagem “Já existe uma conta que usa esse Login”
 And eu continuo na página de “Cadastro de usuário”
+
+Scenario: Erro exibido quando a senha inserida é muito curta
+Given eu estou na página de “Cadastro de usuário”
+And não há nenhum dado preenchido
+When eu preencho o campo “Nome” com “abc123”
+And eu preencho o campo “E-mail” com “abc123@gmail.com”
+And eu preencho o campo “Senha” com “senha”
+And eu preencho o campo “Login” com “abcabc”
+And eu preencho o campo “Tipo de conta” com “Ouvinte”
+And eu clico na opção “Finalizar cadastro”
+Then eu vejo uma mensagem na tela dizendo “A senha deve ter pelo menos 8 caracteres”
+And eu continuo na página de “Cadastro de usuário”
