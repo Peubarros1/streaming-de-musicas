@@ -40,3 +40,4 @@ And eu preencho o campo “Tipo de conta” com “Ouvinte”
 And eu clico na opção “Finalizar cadastro”
 Then eu vejo uma mensagem na tela dizendo “A senha deve ter pelo menos 8 caracteres”
 And eu continuo na página de “Cadastro de usuário”
+And o campo "Senha" deve estar destacado como inválido
