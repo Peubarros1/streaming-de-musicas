@@ -52,3 +52,16 @@ And eu não preencho o campo de “Tipo de conta”
 And eu clico na opção “Finalizar cadastro”
 Then eu vejo uma mensagem na tela dizendo “Todos os campos devem ser preenchidos para o cadastro ser finalizado”
 And eu continuo na página de “Cadastro de usuário”
+
+Scenario: Erro ao preencher um campo acima do limite de caracteres
+Given eu estou na página de “Cadastro de usuário”
+And não há nenhum dado preenchido
+When eu preencho o campo “Nome” com “abc123”
+And eu preencho o campo “E-mail” com “abc123@gmail.com”
+And eu preencho o campo “Senha” com “Senhasupersecreta1!!!!!!!!”
+And eu preencho o campo “Login” com “abcabc”
+And eu preencho o campo “Tipo de conta” com “Ouvinte”
+And eu clico na opção “Finalizar cadastro”
+Then eu vejo uma mensagem na tela dizendo “Voce ultrapassou o limite de caracteres no campo Senha"
+And eu continuo na página de “Cadastro de usuário”
+And o campo "Senha" deve estar destacado como inválido
