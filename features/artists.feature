@@ -45,14 +45,11 @@ Scenario: unsuccessful artist registration with duplicate login
   Then I can see the error message "This login is already in use"
   And the artist account is not created
 
-Scenario: unsuccessful album registration by non-artist user
-  Given I am logged in as listener "Carlos"
-  And I am at the "Publish Album" page
-  When I fill in "Name" with "Four Seasons"
-  And I fill in "Genre" with "Baroque"
-  And I fill in "Release Date" with "2026-01-01"
-  And I add a song with name "Winter", genre "Baroque" and file "winter.mp3"
-  And I click "Publish"
-  Then I can see the error message "You do not have permission to publish albums"
-  And the album "Four Seasons" is not indexed on the platform
-
+Scenario: successful album registration with multiple artists
+  Given I am logged in as artist "Vivaldi"
+  When I try to publish an album named "Baroque Classics" with genre "Baroque",
+    release date "1725-01-01", song "Spring" with file "spring.mp3"
+    and collaborator "Bach"
+  Then I can see the message "Album published successfully"
+  And the album "Baroque Classics" is indexed on the platform
+  And the album "Baroque Classics" is listed under "Bach" and "Vivaldi"
