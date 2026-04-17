@@ -35,12 +35,12 @@ Scenario: unsuccessful artist registration with duplicate login
   Then I can see the error message "This login is already in use"
   And the artist account is not created
 
-  Scenario: unsuccessful album registration by non-artist user
-    Given I am logged in as listener "Carlos"
-    When I try to publish an album named "Four Seasons" with genre "Baroque",
-      release date "1725-01-01" and song "Winter" with file "winter.mp3"
-    Then I can see an error message
-    And the album "Four Seasons" is not indexed on the platform
+Scenario: unsuccessful album registration by non-artist user
+  Given I am logged in as listener "Carlos"
+  When I try to publish an album named "Four Seasons" with genre "Baroque",
+    release date "1725-01-01" and song "Winter" with file "winter.mp3"
+  Then I can see an error message
+  And the album "Four Seasons" is not indexed on the platform
 
 Scenario: successful album registration with multiple artists
   Given I am logged in as artist "Vivaldi"
