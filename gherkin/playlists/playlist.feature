@@ -27,6 +27,7 @@ Feature: Gerenciamento de playlists
 
   Scenario: Exibir seguidores da playlist
     Given que a playlist "Treino" possui seguidores
+
     When o usuario consulta os seguidores da playlist "Treino"
     Then o sistema deve retornar a lista de seguidores da playlist
 
