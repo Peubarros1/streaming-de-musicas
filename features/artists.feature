@@ -44,3 +44,4 @@ Scenario: unsuccessful artist registration with duplicate login
   And I click "Register"
   Then I can see the error message "This login is already in use"
   And the artist account is not created
+  And the "Login" field is highlighted in red
