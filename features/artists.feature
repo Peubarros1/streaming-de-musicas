@@ -47,7 +47,7 @@ Scenario: successful album registration with multiple artists
   When I try to publish an album named "Baroque Classics" with genre "Baroque",
     release date "1725-01-01", song "Spring" with file "spring.mp3"
     and collaborator "Bach"
-  Then I can see a sucess message
+  Then I can see a success message
   And the album "Baroque Classics" is indexed on the platform
   And the album "Baroque Classics" is listed under "Bach" and "Vivaldi"
 
