@@ -51,3 +51,11 @@ Scenario: successful album registration with multiple artists
   And the album "Baroque Classics" is indexed on the platform
   And the album "Baroque Classics" is listed under "Bach" and "Vivaldi"
 
+Scenario: successful album removal by admin
+  Given I am logged in as admin
+  And there is an album "Four Seasons" published by "Vivaldi"
+  When I try to remove the album "Four Seasons"
+  Then I can see a success message
+  And the album "Four Seasons" is no longer indexed on the platform
+  And all songs from "Four Seasons" are no longer indexed on the platform
+  And I am notified about the removal of all associated songs
