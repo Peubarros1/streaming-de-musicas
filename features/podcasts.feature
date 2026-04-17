@@ -32,3 +32,11 @@ Given que o criador tem um episódio "Episódio 1" publicado
 When ele faz o upload de um novo arquivo de áudio para atualizar o "Episódio 1"
 Then o sistema deve substituir o arquivo anterior permanentemente
 And não deve manter o histórico da versão antiga, economizando espaço
+
+Scenario: Definir fuso horario
+Given que o criador quer agendar um podcast
+Then o sistema deve permitir escolher o fuso horario
+
+Scenario: Upload longo
+Given um arquivo de audio de 5 horas
+Then o sistema deve aceitar sem limite de duracao
