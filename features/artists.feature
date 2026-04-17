@@ -35,3 +35,12 @@ Scenario: unsuccessful album edit with empty name
   And I click "Save"
   Then I can see the error message "Album name cannot be empty"
   And the album remains listed as "Four Seasons"
+
+Scenario: unsuccessful artist registration with duplicate login
+  Given I am at the "Register" page
+  When I fill in "Login" with "vivaldi"
+  And I fill in "Password" with "ilPetreRosso"
+  And I check "I want to publish music"
+  And I click "Register"
+  Then I can see the error message "This login is already in use"
+  And the artist account is not created
