@@ -40,4 +40,14 @@ And o sistema possui os filtros “MPB”, “Djavan” armazenados como filtros
 When acesso a tela de busca sem realizar mais nenhuma ação
 Then o sistema deve exibir os filtros “MPB”, “Djavan” como últimos filtros aplicados
 
+Cenário: Busca por música utilizando filtro de gênero com resultados
+Given estou logado como "Usuário" com login "LuisCardoso012" e senha "1234"
+And existe no sistema a música "Se.." do gênero "MPB"
+And estou na página de busca
+When pesquiso pelo termo "Se.."
+And aplico o filtro de gênero "MPB"
+Then o sistema deve exibir a música "Se.." nos resultados
+And os resultados devem estar ordenados de forma decrescente pelo total de reproduções
+And nenhuma música de gênero diferente de "MPB" deve ser listada
+
 
