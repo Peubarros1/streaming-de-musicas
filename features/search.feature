@@ -33,4 +33,5 @@ When pesquiso por uma música sem preencher o campo de busca
 And aplico o filtro de gênero "GeneroInexistente123"
 Then devo ver um placeholder informando que não houveram resultados
 And o sistema não deve exibir nenhum item na lista de resultados
+And os stakeholders querem um passo novo ao executar a ação
 
