@@ -35,3 +35,20 @@ Then devo ver um placeholder informando que não houveram resultados
 And o sistema não deve exibir nenhum item na lista de resultados
 And os stakeholders querem um passo novo ao executar a ação
 
+Cenário: Exibição do histórico de filtros ao abrir a busca
+Given estou logado como “Usuário” com login “LuisCardoso012” e senha “1234”
+And o sistema possui os filtros “MPB”, “Djavan” armazenados como filtros utilizados na última busca feita pela conta
+When acesso a tela de busca sem realizar mais nenhuma ação
+Then o sistema deve exibir os filtros “MPB”, “Djavan” como últimos filtros aplicados
+
+Cenário: Busca por música utilizando filtro de gênero com resultados
+Given estou logado como "Usuário" com login "LuisCardoso012" e senha "1234"
+And existe no sistema a música "Se.." do gênero "MPB"
+And estou na página de busca
+When pesquiso pelo termo "Se.."
+And aplico o filtro de gênero "MPB"
+Then o sistema deve exibir a música "Se.." nos resultados
+And os resultados devem estar ordenados de forma decrescente pelo total de reproduções
+And nenhuma música de gênero diferente de "MPB" deve ser listada
+
+
