@@ -23,3 +23,13 @@ And eu altero o campo "E-mail" do usuário selecionado para "novoemail@gmail.com
 And eu clico em "Salvar"
 Then as informações do usuário devem ser atualizadas com sucesso
 And o campo que foi alterado deve ser exibido na lista de usuários
+
+Scenario: Remover conta de um usuário existente
+Given existe um usuário cadastrado no sistema com o Login "abcabc"
+And eu estou logado como administrador
+And eu estou na página de "Gerenciamento de usuários"
+When eu clico na opção "Remover usuário"
+And eu preencho o campo "Login" com "abcabc"
+And eu clico em "Remover"
+Then a conta do usuário com o Login "abcabc" não deve mais existir no sistema
+And eu vejo uma mensagem na tela dizendo que o usuário foi removido
