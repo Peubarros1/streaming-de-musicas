@@ -19,7 +19,7 @@ Given existe um usuário cadastrado no sistema
 And eu estou logado como administrador
 And eu estou na página de "Gerenciamento de usuários"
 When eu seleciono um usuário da lista de usuários
-And eu altero o campo "E-mail" do usuário selecionado para "novoemail@gmail.com"
+And eu altero o campo "Nome" do usuário selecionado para "abcabca"
 And eu clico em "Salvar"
 Then as informações do usuário devem ser atualizadas com sucesso
 And o campo que foi alterado deve ser exibido na lista de usuários
