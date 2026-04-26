@@ -66,3 +66,15 @@ And eu clico na opção “Finalizar cadastro”
 Then eu vejo uma mensagem na tela dizendo “Voce ultrapassou o limite de caracteres no campo Senha"
 And eu continuo na página de “Cadastro de usuário”
 And o campo "Senha" deve estar destacado como inválido
+
+Scenario: Cadastro de um usuário artista com sucesso
+Given eu estou na página de “Cadastro de usuário”
+And não há nenhum dado preenchido
+When eu preencho os campos com
+    |  login  |  nome  |        senha        |      email       |  tipo de conta  |   Descrição  |
+    |  abcabc | abc123 | Senhasupersecreta1! | abc123@gmail.com |     Artista     |     xxxxx    |
+And eu clico na opção "Finalizar cadastro"
+Then a minha conta de artista é criada com sucesso
+And eu sou redirecionado para a “Página inicial”
+And eu devo ver a mensagem “Seja bem-vindo ao serviço de streaming de música. Estamos ansiosos para ouvir seus hits musicais”
+And eu devo ser capaz de criar músicas ao clicar na opção de "Adicionar músicas"
