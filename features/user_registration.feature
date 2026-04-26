@@ -78,3 +78,15 @@ Then a minha conta de artista é criada com sucesso
 And eu sou redirecionado para a “Página inicial”
 And eu devo ver a mensagem “Seja bem-vindo ao serviço de streaming de música. Estamos ansiosos para ouvir seus hits musicais”
 And eu devo ser capaz de criar músicas ao clicar na opção de "Adicionar músicas"
+
+Scenario: Cadastro de um usuário podcaster com sucesso
+Given eu estou na página de “Cadastro de usuário”
+And não há nenhum dado preenchido
+When eu preencho os campos com
+    |  login  |  nome  |        senha        |      email       |  tipo de conta  |   Descrição  |
+    |  abcabc | abc123 | Senhasupersecreta1! | abc123@gmail.com |     Podcast     |     xxxxx    |
+And eu clico na opção "Finalizar cadastro"
+Then a minha conta de podcaster é criada com sucesso
+And eu sou redirecionado para a “Página inicial”
+And eu devo ver a mensagem “Seja bem-vindo ao serviço de streaming de música. Estamos ansiosos para ouvir seus podcasts”
+And eu devo ser capaz de criar podcasts ao clicar na opção de "Adicionar podcast"
