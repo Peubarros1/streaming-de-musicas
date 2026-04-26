@@ -39,3 +39,14 @@ Then eu vejo uma mensagem na tela dizendo "As informações da sua conta foram a
 And meu Nome deve ser "abc124"
 And meu tipo de conta deve ser "Artista"
 And eu devo conseguir autenticar com a nova senha
+
+Scenario: Atualização de informação com um valor inválido
+Given eu estou logado na minha conta
+And a senha atual da minha conta é "Senhasupersecreta1!"
+And eu estou na página de "Página inicial”
+When eu clico no botão de "Atualizar conta"
+And eu preencho o campo "Senha" com "senha"
+And eu clico em "Confirmar"
+Then eu vejo uma mensagem da tela dizendo "Preencha os campos de atualização com dados válidos."
+And a senha da minha conta não é alterada
+And o campo "Senha" deve estar destacado como inválido
