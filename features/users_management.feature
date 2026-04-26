@@ -26,6 +26,18 @@ Then o usuário deve ser cadastrado com sucesso
 And o usuario deve aparecer na lista de usuários
 And o usuario deve ser capaz de criar músicas
 
+Scenario: Erro ao inserir um novo usuário com um login já existente
+Given eu estou logado como administrador
+And já existe um usuário com o login "abcabc"
+And eu estou na página de "Gerenciamento de usuários"
+When eu clico na opção "Adicionar usuário"
+And eu preencho os dados do usuário com
+    |  login  |  nome  |        senha        |      email       |  tipo de conta  |   Descricao   |
+    |  abcabc | abc123 | Senhasupersecreta1! | abc123@gmail.com |     Artista     |     xxxxx     |
+And eu clico em "Salvar"
+Then eu vejo uma mensagem na tela dizendo "Já existe um usuário com esse login."
+And a lista de usuários permanece a mesma
+
 Scenario: Atualizar informações de um usuário existente
 Given existe um usuário cadastrado no sistema
 And eu estou logado como administrador
