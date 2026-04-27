@@ -28,3 +28,9 @@ And eu filtro o histórico por "Músicas"
 And eu removo o filtro
 Then eu devo ver músicas e podcasts no histórico
 And os itens devem estar ordenados do mais recente para o mais antigo
+
+Scenario: Registrar um item que foi reproduzido quando não irá ultrapassar o limite
+Given eu estou logado na minha conta
+And meu histórico não está no limite de itens
+When eu reproduzo um item do tipo "Música"
+Then o item do tipo "Música" deve ser adicionado ao meu histórico
