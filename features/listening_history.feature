@@ -10,14 +10,21 @@ When eu clico na opção de "Visualizar histórico"
 Then eu devo ver na tela músicas e podcasts no mesmo histórico
 And os itens devem estar ordenados do mais recente para o mais antigo
 
-Scenario: Visualizar apenas o que for filtrado no histórico
+Scenario Outline: Filtrar histórico por diferentes critérios
 Given eu estou logado na minha conta
-And existem músicas e podcasts no meu histórico
+And existem itens no meu histórico
 And eu estou na página de "Página inicial"
 When eu clico na opção de "Visualizar histórico"
-And eu filtro o histórico por "Músicas"
-Then eu devo ver apenas itens do tipo "Músicas"
+And eu filtro o histórico por "<critério>" com valor "<valor>"
+Then eu devo ver apenas itens que correspondam ao filtro
 And os itens devem estar ordenados do mais recente para o mais antigo
+
+Examples:
+| critério |    valor   |
+|   tipo   |   músicas  |
+|   tipo   |   podcasts |
+|  titulo  |   xxxxxxx  |
+|   data   | 2026-01-01 |
 
 Scenario: Alternar entre visualização unificada e separada
 Given eu estou logado na minha conta
