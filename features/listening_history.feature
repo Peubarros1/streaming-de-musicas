@@ -40,6 +40,15 @@ And não existe um item com título "abcd" no histórico
 When eu busco por "abcd" no histórico
 Then eu devo ver uma mensagem na tela dizendo que não há resultados
 
+Scenario: Buscar itens por correspondência parcial retornando múltiplos resultados
+Given eu estou logado na minha conta
+And eu estou na página de "Histórico"
+And existe um item com título "Podcast A" no histórico
+And existe um item com título "Podcast B" no histórico
+When eu busco por "Podcast" no histórico
+Then eu devo ver todos os itens que contenham "Podcast" no título
+And não devo ver itens que não correspondam à busca
+
 Scenario: Alternar entre visualização unificada e separada
 Given eu estou logado na minha conta
 And existem músicas e podcasts no meu histórico
