@@ -87,3 +87,13 @@ And eu preencho o campo "Login" com "abcabc"
 And eu clico em "Remover"
 Then a conta do usuário com o Login "abcabc" não deve mais existir no sistema
 And eu vejo uma mensagem na tela dizendo que o usuário foi removido
+
+Scenario: Erro ao tentar remover conta de um usuário que não existe
+Given não existe um usuário no sistema com o Login "abcabc"
+And eu estou logado como administrador
+And eu estou na página de "Gerenciamento de usuários"
+When eu clico na opção "Remover usuário"
+And eu preencho o campo "Login" com "abcabc"
+And eu clico em "Remover"
+Then eu vejo uma mensagem de erro dizendo que não existe um usuário com o Login "abcabc"
+And nenhuma conta deve ser removida do sistema
