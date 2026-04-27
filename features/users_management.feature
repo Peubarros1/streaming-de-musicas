@@ -38,6 +38,17 @@ And eu clico em "Salvar"
 Then eu vejo uma mensagem na tela dizendo "Já existe um usuário com esse login."
 And a lista de usuários permanece a mesma
 
+Scenario: Erro ao não escrever informações válidas para o inserimento de um novo usuário
+Given eu estou logado como administrador
+And eu estou na página de "Gerenciamento de usuários"
+When eu clico na opção "Adicionar usuário"
+And eu preencho os dados do usuário com
+    |  login  |  nome  | senha |      email       |  tipo de conta  |   Descricao   |
+    |         | abc123 | senha | abc123@ggggg.com |     Podcast     |     xxxxx     |
+And eu clico em "Salvar"
+Then eu vejo uma mensagem na tela dizendo "Preencha os campos com dados válidos para inserir um novo usuário."
+And a lista de usuários permanece a mesma
+
 Scenario: Atualizar informações de um usuário existente
 Given existe um usuário cadastrado no sistema
 And eu estou logado como administrador
