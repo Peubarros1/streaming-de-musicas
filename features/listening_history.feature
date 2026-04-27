@@ -3,6 +3,13 @@ As a usuário
 I want to ver meu histórico de músicas e podcasts
 So that eu possa rever as músicas e podcasts que eu escutei
 
+Scenario: Visualizar histórico vazio
+Given eu estou logado na minha conta
+And eu estou na página de "Página inicial"
+And não existem itens no meu histórico
+When eu clico na opção de "Visualizar histórico"
+Then eu devo ver uma mensagem indicando que não há itens no histórico
+
 Scenario: Visualizar histórico unificado
 Given eu estou logado na minha conta
 And eu estou na página de "Página inicial"
