@@ -59,6 +59,16 @@ And eu clico em "Salvar"
 Then as informações do usuário devem ser atualizadas com sucesso
 And o campo que foi alterado deve ser exibido na lista de usuários
 
+Scenario: Erro ao atualizar com um login já existente
+Given existe um usuário com o login "abcabc" cadastrado no sistema
+And eu estou logado como administrador
+And eu estou na página de "Gerenciamento de usuários"
+When eu seleciono um usuário da lista de usuários
+And eu altero o campo "login" do usuário selecionado para "abcabc"
+And eu clico em "Salvar"
+Then eu vejo uma mensagem na tela dizendo "Já existe um usuário com esse login."
+And nenhuma informação do usuário é alterada
+
 Scenario: Remover conta de um usuário existente
 Given existe um usuário cadastrado no sistema com o Login "abcabc"
 And eu estou logado como administrador
