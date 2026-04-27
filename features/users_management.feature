@@ -69,6 +69,15 @@ And eu clico em "Salvar"
 Then eu vejo uma mensagem na tela dizendo "Já existe um usuário com esse login."
 And nenhuma informação do usuário é alterada
 
+Scenario: Erro ao atualizar uma informação com valor igual ao atual
+Given existe um usuário com o nome "abcabc" cadastrado no sistema
+And eu estou logado como administrador
+And eu estou na página de "Gerenciamento de usuários"
+When eu seleciono o usuário com o nome "abcabc" da lista de usuários
+And eu altero o campo "Nome" do usuário selecionado para "abcabc"
+Then eu vejo uma mensagem de erro informando que o usuário já tem esse nome cadastrado
+And a lista de usuários permanece a mesma
+
 Scenario: Remover conta de um usuário existente
 Given existe um usuário cadastrado no sistema com o Login "abcabc"
 And eu estou logado como administrador
