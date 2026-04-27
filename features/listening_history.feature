@@ -48,3 +48,12 @@ And meu histórico está no número máximo de itens
 When eu reproduzo um item do tipo "Podcast"
 Then o item mais antigo no meu histórico deve ser removido
 And o novo item do tipo "Podcast" deve ser adicionado ao topo do histórico
+
+Scenario: Remover um item do histórico
+Given eu estou logado na minha conta
+And eu estou na página de "Histórico"
+And meu histórico possui pelo menos um item existente
+When eu clico em um item
+And eu clico em "Remover item do histórico"
+Then o item deve ser removido do histórico
+And ele não deve mais aparecer na lista de histórico
