@@ -34,3 +34,10 @@ Given eu estou logado na minha conta
 And meu histórico não está no limite de itens
 When eu reproduzo um item do tipo "Música"
 Then o item do tipo "Música" deve ser adicionado ao meu histórico
+
+Scenario: Remover o item mais antigo ao atingir o limite
+Given eu estou logado na minha conta
+And meu histórico está no limite de itens
+When eu reproduzo um item do tipo "Podcast"
+Then o item mais antigo no meu histórico deve ser removido
+And o novo item do tipo "Podcast" deve ser adicionado ao topo do histórico
