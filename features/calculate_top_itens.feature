@@ -26,3 +26,9 @@ When o sistema calcula o ranking mensal
 And eu clico em "Visualizar top 10"
 Then o sistema deve retornar apenas os 10 itens do tipo "Música" mais escutados 
 And os itens devem estar ordenados por quantidade de reproduções decrescente
+
+Scenario: Desempate por data da última reprodução
+Given dois ou mais itens possuem a mesma quantidade de reproduções no mês atual
+When o sistema calcula o ranking mensal
+Then o sistema deve usar um critério de desempate por data da última reprodução
+And o item com a reprodução mais recente deve aparecer primeiro.
