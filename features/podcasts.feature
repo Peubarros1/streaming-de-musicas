@@ -1,42 +1,47 @@
 Feature: Processamento de Áudio
-Scenario: Upload de arquivo com formato inválido
-Given que o serviço de upload recebeu um arquivo "aula_01.pdf"
-When o validador de formato processar o arquivo
-Then o sistema deve rejeitar o arquivo
-And retornar o erro "Formato de arquivo não suportado. Utilize apenas MP3 ou WAV."
+  Scenario: Upload de arquivo com formato inválido (PDF)
+    Given que o criador seleciona o arquivo "aula_01.pdf" para compor um novo episódio
+    When ele tenta enviar o arquivo para publicação
+    Then o episódio não deve ser publicado
+    And o sistema deve exibir a mensagem "Formato de arquivo não suportado. Utilize apenas MP3 ou WAV."
+
+  Scenario: Tentativa de upload de arquivo contendo vídeo
+    Given que o criador seleciona o arquivo de vídeo "videocast.mp4" para o episódio
+    When ele tenta enviar o arquivo para publicação
+    Then a publicação deve falhar
+    And deve ser exibida a mensagem "Formato de arquivo não suportado. Utilize apenas MP3 ou WAV."
+
 
 Feature: Download de Episódio
-Scenario: Tentativa de download por usuário não autenticado
-Given que um visitante não logado acessa a página do episódio "Episódio 1"
-When o visitante clica no botão de "Baixar arquivo"
-Then o sistema deve bloquear o download
-And exibir a mensagem de erro "É necessário estar logado para baixar o podcast."
+  Scenario: Tentativa de download por usuário não autenticado
+    Given que um visitante não logado acessa a página do "Episódio 1"
+    When ele solicita o download do arquivo bruto do podcast
+    Then o download não deve ser iniciado
+    And o sistema deve exibir a mensagem "É necessário estar logado para baixar o podcast."
 
-Feature: Upload de Conteúdo
-Scenario: Tentativa de upload de arquivo contendo vídeo
-Given que um criador tenta fazer o upload do arquivo "videocast.mp4"
-When o sistema valida o tipo de mídia do arquivo
-Then o upload deve ser rejeitado
-And o sistema deve exibir a mensagem de erro "Apenas arquivos de áudio são permitidos."
 
 Feature: Métricas de Popularidade
-Scenario: Visualização de acessos totais por usuários externos
-Given que o episódio "Engenharia de Software 101" possui 500 acessos
-When um visitante anônimo acessa a página do podcast
-Then o sistema deve exibir o contador com "500 acessos"
-And essa informação deve estar disponível publicamente
+  Scenario: Visualização de acessos totais por usuários externos
+    Given que o episódio "Engenharia de Software 101" acumula 500 reproduções iniciadas
+    When um visitante qualquer acessa a página do episódio
+    Then deve ser exibido o total de "500 acessos"
+    And essa informação deve ser visível para todos os perfis de usuários
+
 
 Feature: Gerenciamento de Episódios
-Scenario: Atualização de arquivo de áudio sem manter histórico
-Given que o criador tem um episódio "Episódio 1" publicado
-When ele faz o upload de um novo arquivo de áudio para atualizar o "Episódio 1"
-Then o sistema deve substituir o arquivo anterior permanentemente
-And não deve manter o histórico da versão antiga, economizando espaço
+  Scenario: Atualização de arquivo de áudio sem manter histórico
+    Given que o criador possui o "Episódio 1" publicado
+    When ele atualiza o episódio enviando um novo arquivo de áudio
+    Then o novo áudio deve ser reproduzido nas próximas execuções do "Episódio 1"
+    And o arquivo de áudio original não deve mais estar disponível para reprodução ou download
 
-Scenario: Definir fuso horario
-Given que o criador quer agendar um podcast
-Then o sistema deve permitir escolher o fuso horario
+  Scenario: Upload de arquivo de longa duração
+    Given que o criador selecionou um arquivo de áudio com "5 horas" de duração
+    When o envio do arquivo for concluído
+    Then o episódio deve ser publicado com sucesso, sem bloqueios por limite de tempo
 
-Scenario: Upload longo
-Given um arquivo de audio de 5 horas
-Then o sistema deve aceitar sem limite de duracao
+  Scenario: Ouvir podcast offline
+    Given que um usuário logado concluiu o download do arquivo bruto do "Episódio 1"
+    And o seu dispositivo está desconectado da internet
+    When ele tenta reproduzir o arquivo baixado localmente
+    Then o áudio deve ser executado normalmente
