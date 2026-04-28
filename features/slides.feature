@@ -15,6 +15,7 @@ Scenario: Falha ao tentar criar uma playlist por não ter nome
 Given que o usuário "pedro" está logado com login"pedro123" e senha "12345"
 And o usuário está na página "Playlists"
 When o usuário seleciona a opção "Criar Playlist"
+And o usuário não preenche o campo nome
 Then o usuário ainda está na página "Playlists"
 And o usuário consegue ver a mensagem "Por favor preencha o campo do nome"
 
