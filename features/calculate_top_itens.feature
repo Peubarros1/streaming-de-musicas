@@ -40,3 +40,9 @@ And eu estou na página de "Página inicial"
 When o sistema calcula o ranking mensal
 And eu clico em "Visualizar ranking mensal"
 Then o sistema deve retornar uma lista vazia para itens do tipo "Podcast"
+
+Scenario: Contabilizar reprodução de item
+Given o item "Música A" possui 2 reproduções no mês atual
+And eu estou logado na minha conta
+When eu reproduzo o item "Música A"
+Then o item "Música A" deve passar a ter 3 reproduções no mês atual
