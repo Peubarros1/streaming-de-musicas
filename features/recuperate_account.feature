@@ -10,3 +10,11 @@ When eu clico em "Esqueci a senha"
 And eu preencho o campo "Email" com "abc@gmail.com"
 Then o sistema deve enviar um e-mail com instruções para redefinição de senha
 And eu devo ver uma mensagem na tela informando que um e-mail foi enviado para o e-mail informado
+
+Scenario: Solicitar recuperação de conta com e-mail não cadastrado
+Given não existe uma conta cadastrada com o e-mail "inexistente@gmail.com"
+And eu estou na página de "Login"
+When eu clico em "Esqueci a senha"
+And eu preencho o campo "Email" com "inexistente@gmail.com"
+Then eu devo ver uma mensagem na tela informando que não existe uma conta cadastrada com esse Email
+And o campo "Email" deve estar destacado como inválido
