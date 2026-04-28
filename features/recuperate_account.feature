@@ -18,3 +18,9 @@ When eu clico em "Esqueci a senha"
 And eu preencho o campo "Email" com "inexistente@gmail.com"
 Then eu devo ver uma mensagem na tela informando que não existe uma conta cadastrada com esse Email
 And o campo "Email" deve estar destacado como inválido
+
+Scenario: Redefinir senha com link válido
+Given eu recebi um link válido de redefinição
+When eu acesso o link de redefinição
+And eu preencho o campo "Senha" com "Senhasupersecreta1!"
+Then eu posso fazer o login utilizando a nova senha
