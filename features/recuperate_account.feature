@@ -39,3 +39,8 @@ And eu preencho o campo "Senha" com "senha"
 And eu clico em "Confirmar"
 Then eu vejo uma mensagem na tela dizendo "Insira uma senha válida com pelo menos 8 caracteres."
 And o campo "Senha" deve estar destacado como inválido
+
+Scenario: Invalidar link de redefinição de senha após uso
+Given eu recebi um link válido de redefinição de senha
+When eu utilizo o link de redefinição
+Then o link de redefinição deve se tornar inválido
