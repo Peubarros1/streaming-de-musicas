@@ -30,3 +30,11 @@ Given eu recebi um link de redefinição inválido ou expirado
 When eu acesso o link de redefinição
 Then o sistema deve informar que o link é inválido ou expirado
 And eu vejo uma mensagem na tela dizendo para eu tentar receber outro link
+
+Scenario: Link válido porém a senha informada não é válida
+Given eu recebi um link válido de redefinição
+When eu acesso o link de redefinição
+And eu preencho o campo "Senha" com "senha"
+And eu clico em "Confirmar"
+Then eu vejo uma mensagem na tela dizendo "Insira uma senha válida com pelo menos 8 caracteres."
+And o campo "Senha" deve estar destacado como inválido
