@@ -23,6 +23,7 @@ Scenario: Redefinir senha com link válido
 Given eu recebi um link válido de redefinição
 When eu acesso o link de redefinição
 And eu preencho o campo "Senha" com "Senhasupersecreta1!"
+And eu clico em "Confirmar"
 Then eu posso fazer o login utilizando a nova senha
 
 Scenario: Acessar link inválido ou expirado
