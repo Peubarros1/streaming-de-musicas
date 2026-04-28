@@ -27,3 +27,4 @@ Then o sistema deve exibir o item "Love will tear us apart" nos resultados
 And os resultados devem estar ordenados de forma descrescente priorizando correlação
 And músicas com mesma correlação devem ser ordenadas por total de reproduções
 And nenhuma música sem correlação com "Love will tear us apart" deve ser exibida
+And eu continuo na página "Busca"
