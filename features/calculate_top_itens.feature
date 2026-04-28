@@ -32,3 +32,11 @@ Given dois ou mais itens possuem a mesma quantidade de reproduções no mês atu
 When o sistema calcula o ranking mensal
 Then o sistema deve usar um critério de desempate por data da última reprodução
 And o item com a reprodução mais recente deve aparecer primeiro.
+
+Scenario: Nenhum item de uma categoria reproduzido no mês
+Given não existem reproduções de um item do tipo "Podcast" no mês atual
+And eu estou logado na minha conta
+And eu estou na página de "Página inicial"
+When o sistema calcula o ranking mensal
+And eu clico em "Visualizar ranking mensal"
+Then o sistema deve retornar uma lista vazia para itens do tipo "Podcast"
