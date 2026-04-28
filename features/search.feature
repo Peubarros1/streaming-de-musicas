@@ -6,6 +6,7 @@ And posso ver a seção "Músicas em Alta"
 And posso ver a seção "Podcasts em Alta"
 And posso ver meu histórico de músicas ouvidas recentemente
 And posso ver minhas playlists
+And posso ver um ícone 
 And vejo uma mensagem na parte de cima da tela: “Ola, LuisCardoso012!”
 
 Cenário: Exibição da página inicial para usuário nao logado
@@ -37,7 +38,7 @@ And os stakeholders querem um passo novo ao executar a ação
 
 Cenário: Busca por nome que retorna resultado
 Given estou logado como “Usuário” com login “LuisCardoso012” e senha “1234”
-And estou na página de busca
+And estou na página "Busca"
 And existe um item com título "MusicaBonita123"
 When realizo uma busca pelo termo "MusicaBonita123"
 Then o sistema deve exibir a música "MusicaBonita123" nos resultados
@@ -65,8 +66,8 @@ Cenário: Busca por música utilizando apenas filtro de gênero com resultados
 Cenário: Busca por músicas utilizando filtro de gênero com resultados
 Given estou logado como "Usuário" com login "LuisCardoso012" e senha "1234"
 And existe no sistema músicas do gênero "MPB"
-And estou na página de busca
-When não preencho o campo de nome
+And estou na página "Busca"
+When preencho o campo nome com ""
 And aplico o filtro de gênero "MPB"
 Then o sistema deve exibir as 10 músicas com maior número de reproduções do gênero "MPB" nos resultados
 And os resultados devem estar ordenados de forma decrescente pelo total de reproduções
@@ -75,7 +76,7 @@ And nenhuma música de gênero diferente de "MPB" deve ser listada
 Cenário: Busca por músicas utilizando filtro de nome do artista
 Given estou logado como "Usuário" com login "LuisCardoso012" e senha "1234"
 And existe no sistema músicas do artista "Noel Rosa"
-And estou na página de busca
+And estou na página "Busca"
 When não preencho o campo de nome
 And aplico o filtro de nome de artista "Djavan" 
 Then o sistema deve exibir as 10 músicas com maior número de reproduções associadas ao artista "Noel Rosa" nos resultados
