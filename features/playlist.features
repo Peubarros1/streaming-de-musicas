@@ -16,7 +16,7 @@ Feature Validar dados ao criar playlist
   
   Scenario nome de playlist é válido
     Given o usuário está na tela de criação de playlist
-    And o nome da playlist foi preencido com o valor "UM NOME LEGAL"
+    And o nome da playlist foi preencido com o valor "Pedro"
     When o usuário pressionar em criar playlist
     Then a playlist é criada com sucesso
     And data e dono são preenchidos automaticamente # ISSO DE (data, dono) É UMA VALIDAÇÃO A MAIS. TU PODERIA QUEBRAR ISSO EM OUTRO CENÁRIO SE QUISER, MAS DO JEITO QUE TU FEZ TAMBÉM TA CERTO
