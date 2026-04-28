@@ -20,8 +20,8 @@ And os itens devem estar ordenados do mais recente para o mais antigo
 Scenario Outline: Filtrar histórico por diferentes critérios
 Given eu estou logado na minha conta
 And existem itens no meu histórico
-And eu estou na página de "Página inicial"
-When eu clico na opção de "Visualizar histórico"
+And eu estou na página inicial
+When eu acesso meu histórico de reprodução
 And eu filtro o histórico por "<critério>" com valor "<valor>"
 Then eu devo ver apenas itens que correspondam ao filtro
 And os itens devem estar ordenados do mais recente para o mais antigo
