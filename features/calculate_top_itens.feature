@@ -17,3 +17,12 @@ Examples:
 |  artistas |
 |  podcasts |
 |   gênero  |
+
+Scenario: Retornar apenas o top 10 itens mais escutados de uma categoria
+Given existem mais de 10 itens do tipo "Música" do mês atual
+And eu estou logado na minha conta
+And eu estou na página de "Página inicial"
+When o sistema calcula o ranking mensal
+And eu clico em "Visualizar top 10"
+Then o sistema deve retornar apenas os 10 itens do tipo "Música" mais escutados 
+And os itens devem estar ordenados por quantidade de reproduções decrescente
