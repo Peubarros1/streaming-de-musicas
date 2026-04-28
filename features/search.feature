@@ -72,6 +72,16 @@ Then o sistema deve exibir as 10 músicas com maior número de reproduções do 
 And os resultados devem estar ordenados de forma decrescente pelo total de reproduções
 And nenhuma música de gênero diferente de "MPB" deve ser listada
 
+Cenário: Busca por músicas utilizando filtro de nome do artista
+Given estou logado como "Usuário" com login "LuisCardoso012" e senha "1234"
+And existe no sistema músicas do artista "Noel Rosa"
+And estou na página de busca
+When não preencho o campo de nome
+And aplico o filtro de nome de artista "Djavan" 
+Then o sistema deve exibir as 10 músicas com maior número de reproduções associadas ao artista "Noel Rosa" nos resultados
+And os resultados devem estar ordenados de forma decrescente pelo total de reproduções 
+And nenhuma música associada à um outro nome de artista deve ser listada
+
 Cenário: Busca por música utilizando filtro de gênero e campo de nome com resultados
 Given estou logado como "Usuário" com login "LuisCardoso012" e senha "1234"
 And existe no sistema a música "Se.." do gênero "MPB"
@@ -82,5 +92,43 @@ Then o sistema deve exibir a música "Se.." nos resultados
 And os resultados devem estar ordenados de forma decrescente pelo total de reproduções
 And nenhuma música de gênero diferente de "MPB" deve ser listada
 And aqui esta a modificacao no ultimo cenario!!
+
+
+Cenário: Empate em número de reproduções no ranking Em Alta
+Given que a música "Eu te devoro" está cadastrada no sistema, está no ranking Em Alta e possui 1000 reproduções
+And a música "Se.." está cadastrada no sistema, está no em alta e possui 1000 reproduções
+When o sistema ordena o ranking músicas Em Alta
+Then as músicas devem ser ordenadas de maneira alfabética por critério de desempate
+
+Cenário: Ultrapassagem de número de reproduções no ranking Em Alta
+Given que a música "Oceano" está cadastrada no sistema, está no ranking Em Alta e possui 1000 reproduções
+And a música "Sina" está cadastrada no sistema, está no em alta e possui 999 reproduções
+And o ranking de músicas em alta exibe "Oceano" na posição 1
+And o ranking de músicas em alta exibe "Sina" na posição 2
+When a música "Sina" recebe 2 novas reproduções
+Then o total de reproduções da música "Sina" deve ser 1001
+And o ranking de músicas em alta exibe "Sina" na posição 1
+And o ranking de músicas em alta exibe "Oceano" nan posição 2
+
+Cenário: Exibição da página de busca
+Given estou logado como “Usuário” com login “LuisCardoso012” e senha “1234”
+And estou na página inicial da aplicação
+When seleciono a seção de busca
+Then eu posso ver o campo de busca por nome da música
+And eu posso ver o campo de filtro "gênero"
+And eu posso ver o campo de filtro "Nome do artista/podcast"
+And eu posso ver o campo de filtro "Ano de lançamento"
+
+Cenário: Recomendação de músicas com base em um único gênero
+Given estou logado como "Usuario" com login "LuisCardoso012" e senha "1234"
+And meu histórico de reproduções contém apenas as músicas "Chega de Saudade" e "Desafinado" do gênero "Bossa Nova"
+And existem músicas do gênero "Bossa Nova" armazenadas no sistema que não estão presentes no meu histórico
+And eu estou na página inicial
+When eu acesso a seção de músicas recomendadas
+Then o sistema deve exibir músicas do gênero "Bossa Nova" nas recomendações
+And músicas de outros gêneros não devem ser recomendadas
+And músicas "Chega de Saudade" e "Desafinado" não devem ser recomendadas
+
+
 
 
