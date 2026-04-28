@@ -52,3 +52,11 @@ Given existem reproduções de itens da categoria "Música" registradas no mês 
 And o ranking mensal não foi calculado
 When o sistema calcula o ranking mensal no primeiro dia do mês seguinte
 Then o sistema deve considerar todas as reproduções de itens da categoria "Música" até o último dia do mês atual
+
+Scenario: Manter ranking de um mês disponível durante o próximo mês
+Given o ranking do mês de março foi calculado
+And o mês atual é abril
+And eu estou logado na minha conta
+And eu estou na página "Página inicial"
+When eu clico em "Visualizar ranking mensal"
+Then o ranking mensal que deve aparecer é o ranking calculado em março
