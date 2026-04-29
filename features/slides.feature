@@ -30,7 +30,7 @@ And o usuário consegue ver a mensagem "Por favor preencha o campo do nome"
 #Artistas(Analia)
 
 #Podcasts(Guerra)
-Feature: Cadastro e manutenção de episódios de podcast
+Feature: Cadastro de episódios de podcast
 As a usuário artista 
 I want to criar, editar e excluir episódios de podcast
 So that I can gerenciar meu conteúdo de forma eficiente
