@@ -44,24 +44,25 @@ Feature: Funcionalidade básica da página inicial
 As a usuário
 I want to acessar a página inicial
 So that I can acessar rapidamente as seções de histórico, Em alta, Minhas playlists, campo de busca e configurações
-Cenário: Exibição da página inicial para usuário logado
-Given estou logado como “Usuário” com login “LuisCardoso012” e senha “1234”
-When acesso a página "Inicial"
-Then posso ver ao campo "Busca"
-And posso ver a seção "Músicas em Alta"
-And posso ver a seção "Podcasts em Alta"
-And posso ver a seção "Histórico de músicas e podcasts reproduzidos"
-And posso ver a seção "Minhas playlists"
-And posso ver a seção "Configurações"
-And vejo uma mensagem na parte de cima da tela: “Ola, LuisCardoso012!”
+
+  Cenário: Exibição da página inicial para usuário logado
+    Given estou logado como “Usuário” com login “LuisCardoso012” e senha “1234”
+    When acesso a página "Inicial"
+    Then posso ver ao campo "Busca"
+    And posso ver a seção "Músicas em Alta"
+    And posso ver a seção "Podcasts em Alta"
+    And posso ver a seção "Histórico de músicas e podcasts reproduzidos"
+    And posso ver a seção "Minhas playlists"
+    And posso ver a seção "Configurações"
+    And vejo uma mensagem na parte de cima da tela: “Ola, LuisCardoso012!”
 
   Cenário: Busca por nome com correlação integral que retorna um resultado
-  Given estou logado como “Usuário” com login “LuisCardoso012” e senha “1234”
-  And estou na página "Busca"
-  And existe um item com título "Love will tear us apart" do tipo "Música" armazenado no sistema
-  When realizo uma busca pelo termo "Love will tear us apart"
-  Then o sistema deve exibir o item "Love will tear us apart" nos resultados
-  And eu continuo na página "Busca"
+    Given estou logado como “Usuário” com login “LuisCardoso012” e senha “1234”
+    And estou na página "Busca"
+    And existe um item com título "Love will tear us apart" do tipo "Música" armazenado no sistema
+    When realizo uma busca pelo termo "Love will tear us apart"
+    Then o sistema deve exibir o item "Love will tear us apart" nos resultados
+    And eu continuo na página "Busca"
 
 Feature: Implementação inicial de Busca com Filtros
 As a usuário
