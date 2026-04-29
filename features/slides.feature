@@ -16,7 +16,7 @@ And o usuário consegue ver a playlist com o nome "Músicas
 de rock"
 
 Scenario: Falha ao tentar criar uma playlist por não ter nome
-Given que o usuário "LuisCardoso012" está logado c
+Given que o usuário "LuisCardoso012" está logado 
 And o usuário está na página "Playlists"
 When o usuário seleciona a opção "Criar Playlist"
 And o usuário não preenche o campo nome
