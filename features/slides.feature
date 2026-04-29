@@ -47,7 +47,7 @@ I want to criar, editar e excluir episódios de podcast
 So that I can gerenciar meu conteúdo de forma eficiente
 
   Scenario: Criar episódio de podcast com dados válidos
-    Given eu estou logado como "Artista" "Juninho"
+    Given eu estou logado como "Artista" com login "Juninho"
     And estou na tela de criação de episódio de podcast
     When tento criar um episódio com nome "Episódio 1", descrição "primeiro episódio", arquivo "ep1.mp3" válido
     Then data e duração são preenchidos automaticamente
