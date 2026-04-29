@@ -66,9 +66,6 @@ As a usuário
 I want to acessar a página de busca com filtros
 So that I can acessar e reproduzir rapidamente as faixas que desejo consumir
 
-
-
-
   Cenário: Busca por nome com correlação parcial que retorna um resultado
     Given estou logado como “Usuário” 
     And estou na página "Busca"
