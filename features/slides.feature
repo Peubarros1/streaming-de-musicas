@@ -56,6 +56,11 @@ So that I can acessar rapidamente as seções de histórico, Em alta, Minhas pla
     And posso ver a seção "Configurações"
     And vejo uma mensagem na parte de cima da tela: “Ola, LuisCardoso012!”
 
+Feature: Implementação inicial de Busca com Filtros
+As a usuário
+I want to acessar a página de busca com filtros
+So that I can acessar e reproduzir rapidamente as faixas que desejo consumir
+
   Cenário: Busca por nome com correlação integral que retorna um resultado
     Given estou logado como “Usuário” com login “LuisCardoso012” e senha “1234”
     And estou na página "Busca"
@@ -64,10 +69,6 @@ So that I can acessar rapidamente as seções de histórico, Em alta, Minhas pla
     Then o sistema deve exibir o item "Love will tear us apart" nos resultados
     And eu continuo na página "Busca"
 
-Feature: Implementação inicial de Busca com Filtros
-As a usuário
-I want to acessar a página de busca com filtros
-So that I can acessar e reproduzir rapidamente as faixas que desejo consumir
 
   Cenário: Busca por nome com correlação parcial que retorna um resultado
     Given estou logado como “Usuário” com login “LuisCardoso012” e senha “1234”
