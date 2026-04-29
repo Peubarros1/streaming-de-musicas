@@ -29,7 +29,7 @@ And o usuário consegue ver a mensagem "Por favor preencha o campo do nome"
 
 #Artistas(Analia)
 Feature: Cadastro e manutenção de músicas e álbuns
-As a usuário artista
+As a artista
 I want to criar, editar e excluir músicas e álbuns
 So that I can gerenciar meu conteúdo de forma eficiente
 
