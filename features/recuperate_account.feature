@@ -43,4 +43,8 @@ And o campo "Senha" deve estar destacado como inválido
 Scenario: Invalidar link de redefinição de senha após uso
 Given eu recebi um link válido de redefinição de senha
 When eu utilizo o link de redefinição
+<<<<<<< HEAD
 Then o link de redefinição deve se tornar inválido
+=======
+Then o link de redefinição deve se tornar inválido
+>>>>>>> dd85cddd37fd431fd24e1a13851167d1d45fc7fd

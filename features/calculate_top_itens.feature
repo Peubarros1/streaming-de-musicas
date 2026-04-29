@@ -71,4 +71,8 @@ Given eu estou logado na minha conta
 And eu estou na página de "Página inicial"
 And não há ranking mensal calculado
 When eu clico em "Visualizar ranking mensal"
+<<<<<<< HEAD
 Then eu devo ver uma mensagem na tela informando que o ranking mensal ainda não foi calculado
+=======
+Then eu devo ver uma mensagem na tela informando que o ranking mensal ainda não foi calculado
+>>>>>>> dd85cddd37fd431fd24e1a13851167d1d45fc7fd

@@ -100,4 +100,8 @@ Given eu estou logado na minha conta
 And meu histórico possui pelo menos um item existente
 When eu faço logout
 And eu faço login após o logout
+<<<<<<< HEAD
 Then meu histórico deve permanecer o mesmo
+=======
+Then meu histórico deve permanecer o mesmo
+>>>>>>> dd85cddd37fd431fd24e1a13851167d1d45fc7fd

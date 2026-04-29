@@ -99,4 +99,8 @@ When eu clico no botão de "Remover conta"
 And eu preencho o campo de "Senha" com "Senhasupersecreta1!"
 And eu clico no botão de "Confirmar"
 Then eu vejo uma mensagem na tela dizendo "Sua conta foi removida do sistema com sucesso."
+<<<<<<< HEAD
 And minha conta não deve mais existir no sistema
+=======
+And minha conta não deve mais existir no sistema
+>>>>>>> dd85cddd37fd431fd24e1a13851167d1d45fc7fd
