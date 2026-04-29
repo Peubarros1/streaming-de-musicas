@@ -56,6 +56,7 @@ So that I can gerenciar meu conteúdo de forma eficiente
 
 
 # Recomendações e Busca por Filtros(Théo)
+# Recomendações e Busca por Filtros(Théo)
 Feature: Funcionalidade básica da página inicial
 As a usuário
 I want to acessar a página inicial
@@ -70,7 +71,7 @@ So that I can acessar rapidamente as seções de histórico, Em alta, Minhas pla
     And posso ver a seção "Histórico de músicas e podcasts reproduzidos"
     And posso ver a seção "Minhas playlists"
     And posso ver a seção "Configurações"
-    And vejo uma mensagem na parte de cima da tela: "Ola, LuisCardoso012!"
+    And vejo uma mensagem na parte de cima da tela: “Ola, LuisCardoso012!”
 
 Feature: Implementação inicial de Busca com Filtros
 As a usuário
@@ -78,7 +79,7 @@ I want to acessar a página de busca com filtros
 So that I can acessar e reproduzir rapidamente as faixas que desejo consumir
 
   Cenário: Busca por nome com correlação parcial que retorna um resultado
-    Given eu estou logado como "Usuário" 
+    Given estou logado como "Usuário"
     And estou na página "Busca"
     And existe um item com título "Love will tear us apart" do tipo "Música" com 3000 reproduções armazenado no sistema
     And existe um item com título "Love, Hate, Love" do tipo "Música" com 4000 reproduções armazenado no sistema
