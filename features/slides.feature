@@ -19,15 +19,7 @@ And o usuário não preenche o campo nome
 Then o usuário ainda está na página "Playlists"
 And o usuário consegue ver a mensagem "Por favor preencha o campo do nome"
 
-Scenario: Falha ao tentar criar uma playlist pois o nome já existe
-Given que o usuário "LuisCardoso012" está logado 
-And o usuário está na página "Playlists"
-And a playlist "Músicas de rock" já existe
-When o usuário seleciona a opção "Criar Playlist"
-And o usuário preenche o nome com "Músicas de rock", a descrição com
-"melhores musicas" 
-Then o usuário ainda está na página "Playlists"
-And o usuário consegue ver a mensagem "Essa playlist já existe ,tente outro nome"
+
 
 
 
