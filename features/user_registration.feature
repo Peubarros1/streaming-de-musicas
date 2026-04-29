@@ -21,7 +21,7 @@ When eu preencho os campos com
     |  login  |  nome   |        senha        |        email         |  tipo de conta  |
     |  Breno  | Miranda | Senhasupersecreta1! | Mirandinha@gmail.com |     Ouvinte     |
 And eu tento finalizar o cadastro
-Then eu vejo uma mensagem na tela dizendo “Já existe uma conta que usa esse Login. Use outro Login.”
+Then eu vejo uma mensagem na tela de “Já existe uma conta que usa esse Login. Use outro Login.”
 And eu continuo na página de cadastro
 And o campo "Login" deve estar destacado como inválido
 And a conta com Login "Breno" continua cadastrada na plataforma
