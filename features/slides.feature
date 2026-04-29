@@ -56,7 +56,6 @@ So that I can gerenciar meu conteúdo de forma eficiente
 
 
 # Recomendações e Busca por Filtros(Théo)
-# Recomendações e Busca por Filtros(Théo)
 Feature: Funcionalidade básica da página inicial
 As a usuário
 I want to acessar a página inicial
@@ -71,7 +70,7 @@ So that I can acessar rapidamente as seções de histórico, Em alta, Minhas pla
     And posso ver a seção "Histórico de músicas e podcasts reproduzidos"
     And posso ver a seção "Minhas playlists"
     And posso ver a seção "Configurações"
-    And vejo uma mensagem na parte de cima da tela: “Ola, LuisCardoso012!”
+    And vejo uma mensagem na parte de cima da tela: "Ola, LuisCardoso012!"
 
 Feature: Implementação inicial de Busca com Filtros
 As a usuário
