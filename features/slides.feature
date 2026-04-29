@@ -32,8 +32,9 @@ I want to criar, editar e excluir episódios de podcast
 So that I can gerenciar meu conteúdo de forma eficiente
 
   Scenario: Criar episódio de podcast com dados válidos
-    Given o usuário está na tela de criação de episódio de podcast
-    When o usuário tenta criar um episódio com nome "Episódio 1", descrição "primeiro episódio", arquivo "ep1.mp3" válido
+    Given eu estou logado como um artista com login"Juninho" e senha "1234"
+    And estou na tela de criação de episódio de podcast
+    When tento criar um episódio com nome "Episódio 1", descrição "primeiro episódio", arquivo "ep1.mp3" válido
     Then data e duração são preenchidos automaticamente
     And retorna a mensagem de sucesso "Episódio criado com sucesso"
     And o episódio fica disponível para visualização pública
