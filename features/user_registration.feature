@@ -15,16 +15,16 @@ And eu sou redirecionado para a “Página inicial”
 And eu devo ver a mensagem “Seja bem-vindo ao serviço de streaming de música”
 
 Scenario: Tentativa de cadastro com um Login já existente
-Given existe uma conta já cadastrada com o Login “abcabc”
-And eu estou na página de “Cadastro de usuário”
-And não há nenhum dado preenchido
+Given existe uma conta já cadastrada com o Login “Breno”
+And eu estou na página de cadastro
 When eu preencho os campos com
-    |  login  |  nome  |        senha        |      email       |  tipo de conta  |
-    |  abcabc | abc123 | Senhasupersecreta1! | abc123@gmail.com |     Ouvinte     |
-And eu clico na opção “Finalizar cadastro”
-Then eu vejo a mensagem “Já existe uma conta que usa esse Login”
-And eu continuo na página de “Cadastro de usuário”
+    |  login  |  nome   |        senha        |        email         |  tipo de conta  |
+    |  Breno  | Miranda | Senhasupersecreta1! | Mirandinha@gmail.com |     Ouvinte     |
+And eu tento finalizar o cadastro
+Then eu vejo uma mensagem na tela dizendo “Já existe uma conta que usa esse Login. Use outro Login.”
+And eu continuo na página de cadastro
 And o campo "Login" deve estar destacado como inválido
+And a conta com Login "Breno" continua cadastrada na plataforma
 
 Scenario: Erro exibido quando a senha inserida é muito curta
 Given eu estou na página de “Cadastro de usuário”
