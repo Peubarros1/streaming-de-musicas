@@ -12,8 +12,7 @@ And o usuário está na página "Playlists"
 When o usuário seleciona a opção "Criar Playlist"
 And o usuário preenche o nome com "Músicas de rock", a descrição com
 "Melhores musicas" , a visibilidade como "pública"
-Then o usuário ainda está na página "Playlists"
-And o usuário consegue ver a playlist com o nome "Músicas de rock" 
+Then o usuário consegue ver a playlist com o nome "Músicas de rock" 
 And eu vejo uma mensagem de sucesso"playlist criada com sucesso"
 
 Scenario: Falha ao tentar criar uma playlist por não ter nome
