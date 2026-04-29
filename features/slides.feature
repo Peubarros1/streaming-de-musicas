@@ -67,10 +67,11 @@ So that I can acessar rapidamente as seções de histórico, Em alta, Minhas pla
     When acesso a página "Inicial"
     Then posso ver ao campo "Busca"
     And posso ver a seção "Músicas em Alta"
-    And posso ver a seção "Podcasts em Alta"
-    And posso ver a seção "Histórico de músicas e podcasts reproduzidos"
+    And posso ver a seção "Histórico"
     And posso ver a seção "Minhas playlists"
-    And posso ver a seção "Configurações"
+    And posso ver a seção "Editar"
+    And posso ver a seção "Músicas" selecionada
+    And posso ver a seção "Podcasts" não selecionada
     And vejo uma mensagem na parte de cima da tela: "Ola, LuisCardoso012!"
 
 Feature: Implementação inicial de Busca com Filtros
