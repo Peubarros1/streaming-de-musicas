@@ -93,22 +93,21 @@ So that I can acessar e reproduzir rapidamente as faixas que desejo consumir
     And o sistema deve exibir o item "Bizarre Love Triangle" em terceiro lugar nos resultados
     And eu continuo na página "Busca"
 
-#Artistas(Victor)
-
+#Artistas(victor)
 
 Feature: Remoção de artista
 As a usuário artista
 I want to remover minha conta de artista
 So that eu possa excluir meus dados da plataforma
 
-Scenario: Remoção de artista já cadastrado com sucesso
+    Scenario: Remoção de artista já cadastrado com sucesso
 
-Given estou logado como "Artista" com login "Vivaldi" e senha "123"
-And o artista "Vivaldi" possui um álbum chamado "Four Seasons"
-And o álbum "Four Seasons" possui uma música chamada "Winter"
-When eu tento remover minha conta
-And digito a senha "123" 
-Then eu vejo uma mensagem de sucesso "Artista removido com sucesso"
-And o artista "Vivaldi" não está mais cadastrado na plataforma
-And o álbum "Four Seasons" não está mais disponível na plataforma
-And a música "Winter" não está mais disponível na plataforma
+        Given estou logado como "Artista" com login "Vivaldi" e senha "123"
+        And o artista "Vivaldi" possui um álbum chamado "Four Seasons"
+        And o álbum "Four Seasons" possui uma música chamada "Winter"
+        When eu tento remover minha conta
+        And digito a senha "123" 
+        Then eu vejo uma mensagem de sucesso "Artista removido com sucesso"
+        And o artista "Vivaldi" não está mais cadastrado na plataforma
+        And o álbum "Four Seasons" não está mais disponível na plataforma
+        And a música "Winter" não está mais disponível na plataforma
