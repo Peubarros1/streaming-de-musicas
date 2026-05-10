@@ -57,14 +57,14 @@ And eu seleciono "Confirmar"
 Then eu vejo uma mensagem na tela de "Preencha um dos campos de atualização para atualizar a conta."
 And o usuário de login "Carlos1" existe com o nome "Carlos" e senha "Senhasupersecreta1!"
 
-Scenario: Desativar conta do streaming de música
+Scenario: Remover a conta do serviço de streaming de música
 Given eu estou logado como "Ouvinte" com nome "Carlos" e senha "Senhasupersecreta1!" e login "Carlos1"
 And eu estou na página de "Página inicial"
-When eu seleciono "Desativar conta"
+When eu seleciono "Remover conta"
 And eu preencho o campo "Senha" com "Senhasupersecreta1!"
 And eu seleciono "Confirmar"
-Then eu vejo uma mensagem na tela de "Sua conta foi desativada com sucesso. Para ativá-la novamente, basta realizar o login."
-And a conta de login "Carlos1" deve estar desativada até ser feito o Login
+Then eu vejo uma mensagem na tela de "Sua conta foi removida do sistema com sucesso."
+And o usuário de login "Carlos1" não deve mais existir no sistema
 
 Scenario: Erro ao não inserir a senha correta para remover conta
 Given eu estou logado como "Ouvinte" com nome "Carlos" e senha "Senhasupersecreta1!" e login "Carlos1"
@@ -83,13 +83,3 @@ When eu seleciono "Remover conta"
 And eu seleciono "Cancelar"
 Then eu vou para a "Página inicial"
 And o usuário de login "Carlos1" existe com o nome "Carlos" e senha "Senhasupersecreta1!"
-
-Scenario: Remover a conta do serviço de streaming de música
-Given eu estou logado como "Ouvinte" com nome "Carlos" e senha "Senhasupersecreta1!" e login "Carlos1"
-And eu estou na página de "Página inicial"
-When eu seleciono "Remover conta"
-And eu preencho o campo "Senha" com "Senhasupersecreta1!"
-And eu seleciono "Confirmar"
-Then eu vejo uma mensagem na tela de "Sua conta foi removida do sistema com sucesso."
-And o usuário de login "Carlos1" não deve mais existir no sistema
-
