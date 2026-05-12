@@ -52,13 +52,13 @@ And o campo "Tipo de conta" deve estar destacado como inválido
 
 Scenario: Erro ao preencher um campo acima do limite de caracteres
 Given eu estou na página de “Cadastro de usuário”
-And não há nenhum dado preenchido
-When eu preencho os campos com
-    |  login  |  nome  |           senha            |      email       |  tipo de conta  |
-    |  abcabc | abc123 | Senhasupersecreta1!!!!!!!! | abc123@gmail.com |     Ouvinte     |
-And eu clico na opção “Finalizar cadastro”
-Then eu vejo uma mensagem na tela dizendo "Voce ultrapassou o limite de caracteres no campo Senha"
-And eu continuo na página de “Cadastro de usuário”
+When eu preencho o campo "Login" com "Carlos1"
+And eu preencho o campo "Nome" com "Carlos"
+And eu preencho o campo "Senha" com "Senhasupersecreta1!!!!!!!!!!!"
+And eu preencho o campo "Email" com "Carlinhos@gmail.com"
+And eu preencho o campo "Tipo de conta" com "Ouvinte"
+And eu seleciono “Finalizar cadastro”
+Then eu vejo uma mensagem na tela de "Voce ultrapassou o limite de 20 caracteres no campo senha. Construa uma senha mais curta."
 And o campo "Senha" deve estar destacado como inválido
 
 Scenario: Cadastro de um usuário artista com sucesso
