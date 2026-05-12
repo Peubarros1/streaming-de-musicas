@@ -29,16 +29,19 @@ And o usuario deve aparecer na lista de usuários
 And o usuario deve ser capaz de criar músicas
 
 Scenario: Erro ao inserir um novo usuário com um login já existente
-Given eu estou logado como administrador
-And já existe um usuário com o login "abcabc"
+Given eu estou logado como "Administrador" com login "Roberto" e senha "Senhaforte1!"
+And existe uma conta já cadastrada com o Login “Carlos1”
 And eu estou na página de "Gerenciamento de usuários"
-When eu clico na opção "Adicionar usuário"
-And eu preencho os dados do usuário com
-    |  login  |  nome  |        senha        |      email       |  tipo de conta  |   Descricao   |
-    |  abcabc | abc123 | Senhasupersecreta1! | abc123@gmail.com |     Artista     |     xxxxx     |
-And eu clico em "Salvar"
-Then eu vejo uma mensagem na tela dizendo "Já existe um usuário com esse login."
-And a lista de usuários permanece a mesma
+When eu seleciono "Adicionar usuário"
+And eu preencho o campo "Login" com "Carlos1"
+And eu preencho o campo "Nome" com "Carlos"
+And eu preencho o campo "Senha" com "Senhasupersecreta1!"
+And eu preencho o campo "Email" com "Carlinhos@gmail.com"
+And eu preencho o campo "Tipo de conta" com "Ouvinte"
+And eu seleciono "Salvar"
+Then eu vejo uma mensagem na tela de “Já existe uma conta com esse Login. Use outro Login.”
+And o usuário de login "Carlos1" existe
+And o campo "Login" deve estar destacado como inválido
 
 Scenario: Erro ao não escrever informações válidas para o inserimento de um novo usuário
 Given eu estou logado como administrador
