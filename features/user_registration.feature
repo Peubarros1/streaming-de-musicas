@@ -41,16 +41,14 @@ And o campo "Senha" deve estar destacado como inválido
 
 Scenario: Erro ao não preencher todos os campos obrigatórios para o cadastro
 Given eu estou na página de “Cadastro de usuário”
-And não há nenhum dado preenchido
-When eu não preencho o campo de “Nome”
-And eu não preencho o campo de “E-mail”
-And eu não preencho o campo de “Senha”
-And eu não preencho o campo de “Login”
-And eu não preencho o campo de “Tipo de conta”
-And eu clico na opção “Finalizar cadastro”
-Then eu vejo uma mensagem na tela dizendo “Todos os campos obrigatórios devem ser preenchidos para o cadastro ser finalizado”
-And eu continuo na página de “Cadastro de usuário”
-And os campos obrigatórios não preenchidos devem estar destacados como inválidos
+And eu deixo todos os campos de cadastro vazios
+And eu seleciono “Finalizar cadastro”
+Then eu vejo uma mensagem na tela de “Todos os campos obrigatórios devem ser preenchidos para o cadastro ser finalizado.”
+And o campo "Login" deve estar destacado como inválido
+And o campo "Nome" deve estar destacado como inválido
+And o campo "Senha" deve estar destacado como inválido
+And o campo "Email" deve estar destacado como inválido
+And o campo "Tipo de conta" deve estar destacado como inválido
 
 Scenario: Erro ao preencher um campo acima do limite de caracteres
 Given eu estou na página de “Cadastro de usuário”
