@@ -5,14 +5,15 @@ So that eu possa ouvir músicas e podcasts
 
 Scenario: Cadastro realizado com sucesso
 Given eu estou na página de “Cadastro de usuário”
-And não há nenhum dado preenchido
-When eu preencho os campos com
-    |  login  |  nome  |        senha        |      email       |  tipo de conta  |
-    |  abcabc | abc123 | Senhasupersecreta1! | abc123@gmail.com |     Ouvinte     |
-And eu clico na opção “Finalizar cadastro”
-Then a minha conta é criada com sucesso
-And eu sou redirecionado para a “Página inicial”
-And eu devo ver a mensagem “Seja bem-vindo ao serviço de streaming de música”
+When eu preencho o campo "Login" com "Carlos1"
+And eu preencho o campo "Nome" com "Carlos"
+And eu preencho o campo "Senha" com "Senhasupersecreta1!"
+And eu preencho o campo "Email" com "Carlinhos@gmail.com"
+And eu preencho o campo "Tipo de conta" com "Ouvinte"
+And eu seleciono “Finalizar cadastro”
+Then o usuário de login "Carlos1" existe com o nome "Carlos" e senha "Senhasupersecreta1!" e email "Carlinhos@gmail.com" e tipo de conta "Ouvinte"
+And eu vou para a “Página inicial”
+And eu vejo uma mensagem na tela de "Seja bem-vindo ao .WAVe."
 
 Scenario: Tentativa de cadastro com um Login já existente
 Given existe uma conta já cadastrada com o Login “Carlo1”
