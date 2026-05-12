@@ -30,13 +30,13 @@ And o usuário de login "Carlos1" existe
 
 Scenario: Erro exibido quando a senha inserida é muito curta
 Given eu estou na página de “Cadastro de usuário”
-And não há nenhum dado preenchido
-When eu preencho os campos com
-    |  login  |  nome  |  senha   |      email       |  tipo de conta  |
-    |  abcabc | abc123 |  senha   | abc123@gmail.com |     Ouvinte     |
-And eu clico na opção “Finalizar cadastro”
-Then eu vejo uma mensagem na tela dizendo “A senha deve ter pelo menos 8 caracteres”
-And eu continuo na página de “Cadastro de usuário”
+When eu preencho o campo "Login" com "Carlos1"
+And eu preencho o campo "Nome" com "Carlos"
+And eu preencho o campo "Senha" com "ab"
+And eu preencho o campo "Email" com "Carlinhos@gmail.com"
+And eu preencho o campo "Tipo de conta" com "Ouvinte"
+And eu seleciono “Finalizar cadastro”
+Then eu vejo uma mensagem na tela de “A senha deve ter pelo menos 3 caracteres. Construa outra senha.”
 And o campo "Senha" deve estar destacado como inválido
 
 Scenario: Erro ao não preencher todos os campos obrigatórios para o cadastro
