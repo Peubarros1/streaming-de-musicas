@@ -13,5 +13,5 @@ export class UpdateUserDto {
 
   @IsOptional()
   @IsEnum(UserRole)
-  "accountType" ?: UserRole;
+  "role" ?: UserRole;
 }

@@ -1,13 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryColumn, Column } from 'typeorm';
 
 export enum UserRole{
   OUVINTE = 'OUVINTE',
   ARTISTA = 'ARTISTA',
   PODCAST = 'PODCAST'
 }
-@Entity()
+@Entity('users')
 export class User {
-@PrimaryGeneratedColumn() //cria a chave primaria (Linha)
+  @PrimaryColumn() //cria a chave primaria (Linha)
   "login": string;
 
   @Column() //cria a coluna nome
