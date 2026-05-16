@@ -95,8 +95,8 @@ Feature: Streaming System
     And nenhuma música de gênero diferente de "MPB" deve ser listada
 
   Scenario: Empate em numero de reproducoes no ranking Em Alta
-    Given que a música "Eu te devoro" está cadastrada no sistema, está no ranking Em Alta e possui 1000 reproduções
-    And a música "Se.." está cadastrada no sistema, está no em alta e possui 1000 reproduções
+    Given que a música "Eu te devoro" está cadastrada no sistema, está no ranking Em Alta e possui 980 reproduções
+    And a música "Se.." está cadastrada no sistema, está no em alta e possui 980 reproduções
     When o sistema ordena o ranking músicas Em Alta
     Then as músicas devem ser ordenadas de maneira alfabética por critério de desempate
 

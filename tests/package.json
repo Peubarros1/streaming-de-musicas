@@ -1,0 +1,17 @@
+{
+  "name": "streaming-bdd",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "description": "Testes BDD do sistema de streaming com Cucumber e TypeScript",
+  "scripts": {
+    "test": "cucumber-js",
+    "test:report": "cucumber-js --format html:reports/cucumber-report.html",
+    "seed": "ts-node src/seed.ts"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.3.2",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.3.3"
+  }
+}

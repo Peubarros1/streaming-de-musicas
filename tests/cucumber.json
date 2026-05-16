@@ -1,0 +1,9 @@
+{
+  "default": {
+    "require": ["steps_definition/steps.ts", "steps_definition/musica.model.ts"],
+    "requireModule": ["ts-node/register", "tsx/cjs"],
+    "paths": ["../features/search.feature"],
+    "format": ["progress-bar", "html:reports/cucumber-report.html"],
+    "publishQuiet": true
+  }
+}
