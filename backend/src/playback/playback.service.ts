@@ -2,7 +2,7 @@ import { BadRequestException, Injectable, NotFoundException } from '@nestjs/comm
 import { CreatePlaybackDto } from './dto/create-playback.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Playback } from './entities/playback.entity';
-import { Repository } from 'typeorm';
+import { IsNull, Not, Repository } from 'typeorm';
 import { User } from '../users/entities/user.entity';
 import { Musica } from '../musicas/musica.entity';
 import { Episode } from '../episodes/entities/episode.entity';
@@ -60,6 +60,19 @@ export class PlaybackService {
     const user = await this.userRepository.findOne({where: {login}}); //verifica se o usuario existe
     if(!user) {throw new NotFoundException('Usuario nao encontrado');}
     const playback = await this.playbackRepository.find({where: {user}, relations: ['musica', 'episode'], order: { horario: 'DESC' },});
+    if(playback.length === 0){throw new NotFoundException('Playback nao encontrado',);}
+    return playback;
+  }
+
+  async findbytype(login: string, type: 'music' | 'episode',id?: number,){
+    const user = await this.userRepository.findOne({where: { login },});
+    if(!user) {throw new NotFoundException('Usuario nao encontrado');}
+    const wherecondition: any = {user, }; //condicao de where generica se nao tiver id
+    if(type !== 'music' && type !== 'episode'){throw new BadRequestException('O tipo deve ser obrigatoriamente musica ou episodio.',);}
+    if(type === 'music'){wherecondition.musica = Not(IsNull());} // verifica se o tipo de filtro foi musica
+    else{wherecondition.episode = Not(IsNull());}
+    if(id){wherecondition.id = id;} //se um id for necessario
+    const playback = await this.playbackRepository.find({where: wherecondition, relations: ['musica','episode'], order:{horario: 'DESC'},});
     if(playback.length === 0){throw new NotFoundException('Playback nao encontrado',);}
     return playback;
   }
