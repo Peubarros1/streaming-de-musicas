@@ -11,7 +11,7 @@ export class Playback {
     @CreateDateColumn()
     horario: Date;
 
-    @ManyToOne(() => User, user => user.playbacks)
+    @ManyToOne(() => User)
     user: User;
 
     @ManyToOne(() => Musica, {nullable: true})

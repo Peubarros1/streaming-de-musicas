@@ -23,7 +23,4 @@ export class User {
   @Column({type: 'enum', enum: UserRole})
   "role": UserRole;
 
-  @OneToMany(() => Playback, playback => playback.user)
-  playbacks: Playback[];
-
 }
