@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param} from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, ParseIntPipe} from '@nestjs/common';
 import { PlaybackService } from './playback.service';
 import { CreatePlaybackDto } from './dto/create-playback.dto';
 
@@ -17,8 +17,17 @@ export class PlaybackController {
   }
 
   @Get(':id')
-  findOne(@Param('login') login: string, @Param('id') id: number) {
+  findOne(@Param('login') login: string, @Param('id', ParseIntPipe) id: number) {
     return this.playbackService.findOne(login, id,);
   }
 
+  @Get(':type/:id')
+  findbytypeandid(@Param('login') login: string, @Param('type') type: 'music' | 'episode', @Param('id', ParseIntPipe) id: number){
+    return this.playbackService.findbytype(login, type, id, );
+  }
+
+  @Get(':type')
+  findbytype(@Param('login') login: string, @Param('type') type: 'music' | 'episode'){
+    return this.playbackService.findbytype(login, type);
+  }
 }
