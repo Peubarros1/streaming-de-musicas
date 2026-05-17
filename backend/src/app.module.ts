@@ -5,6 +5,7 @@ import {MusicasModule} from './musicas/musicas.module'
 import { PodcastModule } from './podcast/podcast.module';
 import { ProgramasModule } from './programas/programas.module';
 import { EpisodesModule } from './episodes/episodes.module';
+import { PlaybackModule } from './playback/playback.module';
 
 
 @Module({
@@ -25,6 +26,7 @@ import { EpisodesModule } from './episodes/episodes.module';
     PodcastModule,
     ProgramasModule,
     EpisodesModule,
+    PlaybackModule,
   ],
 })
 export class AppModule {}
