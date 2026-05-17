@@ -16,5 +16,6 @@ import { Episode } from '../episodes/entities/episode.entity';
   ]),],
   controllers: [PlaybackController],
   providers: [PlaybackService],
+  exports:[PlaybackService],
 })
 export class PlaybackModule {}
