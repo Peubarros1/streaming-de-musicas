@@ -12,7 +12,4 @@ export class Podcast extends User {
 
     @ManyToMany(() => Programa, programa => programa.podcast)
     programa: Programa[];
-    
-    @ManyToMany(() => Episode, episode => episode.podcasts)
-    episode: Episode[];
 }
