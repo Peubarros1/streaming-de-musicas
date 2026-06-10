@@ -104,7 +104,7 @@ console.log('Tabelas limpas...');
   
     // álbum "Four Seasons" criado p teste de album
   await albumRepo.save({
-    id: 4, 
+     id: 12,
     nome: 'Four Seasons',
     data: '1725-01-01',
     generos: ['Clássico'],
