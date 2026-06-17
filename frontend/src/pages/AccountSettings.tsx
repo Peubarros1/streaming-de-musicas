@@ -13,6 +13,7 @@ const ROLE_LABEL: Record<string, string> = {
 };
 
 export function AccountSettings() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { login, token, logado, sair } = useAuth();
   const navigate = useNavigate();
   const [user,       setUser]       = useState<any | null>(null);
